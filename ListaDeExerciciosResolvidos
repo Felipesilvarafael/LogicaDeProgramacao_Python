@@ -1,0 +1,796 @@
+"""
+Módulo 1: Entrada, saída e variáveis
+[ ] 1. Peça o nome do usuário e mostre uma saudação.
+[ ] 2. Some dois números digitados e mostre o resultado.
+[ ] 3. Calcule o dobro, triplo e raiz quadrada de um número.
+[ ] 4. Peça o nome e a idade e exiba uma frase com essas informações.
+[ ] 5. Faça um programa que leia dois números e mostre: soma, diferença, multiplicação e divisão.
+
+Módulo 2: Condicionais (if, else)
+[ ] 6. Peça um número e diga se ele é par ou ímpar.
+[ ] 7. Peça duas notas e calcule a média. Informe se está aprovado, recuperação ou reprovado.
+[ ] 8. Verifique se o usuário pode votar (idade 16).
+[ ] 9. Peça um número e diga se ele é positivo, negativo ou zero.
+[ ] 10. Faça um programa que leia a senha de acesso e valide se está correta.
+
+Módulo 3: Laços (for, while)
+[ ] 11. Mostre os números de 1 a 10 com for.
+[ ] 12. Mostre os números pares entre 1 e 20 com while.
+[ ] 13. Peça 5 números ao usuário e mostre a soma total.
+[ ] 14. Crie uma tabuada de um número informado pelo usuário.
+[ ] 15. Faça um contador regressivo de 10 até 0.
+
+Módulo 4: Mini-desafios
+[ ] 16. Crie uma calculadora simples (+, -, *, /).
+[ ] 17. Simule um caixa eletrônico com notas de R$100, R$50, R$20 e R$10.
+[ ] 18. Jogo de adivinhação: o programa escolhe um número de 1 a 10.
+"""
+
+
+####################################################### 
+######## MÓDULO 1: ENTRADA, SAÍDA E VARIÁVEIS #########
+#######################################################
+
+# -----------------------------------------------------------
+# Exercício 1: Peça o nome do usuário e mostre uma saudação
+# -----------------------------------------------------------
+
+# MEU CÓDIGO:
+# nome = input("Qual é o seu nome?")
+# print("Olá," nome "Seja bem vindo ao Python!")
+
+# ERRO: 
+# Line 12. SyntaxError: invalid syntax. Perhaps you forgot a comma?
+
+# CAUSA:
+# Tentei concatenar as strings "Olá" e "Seja.." sem o uso de vírgulas ou do operador +
+
+# SOLUÇÃO 1:
+# É preciso usar vírgulas entre as strings que quero concatenar.
+
+# SOLUÇÃO 2:
+# Ou utilizar o operado +. Nesse caso tudo precisa ser do tipo string. Se nome fosse um número, daria erro! Ex: print("Olá," + nome + "seja bem...")
+
+# SOLUÇÃO 3:
+# Utilizar o f-string. Permite inserir variáveis dentro do texto. Ex: print(f"Olá, {nome} Seja bem-vindo..)
+
+# SOLUÇÃO FINAL:
+print("Exercício 1: Peça o nome do usuário e mostre uma saudação")
+nome = input("Qual é o seu nome? ")
+print("Olá,", nome + "!" ,"Seja bem-vindo ao Python!\n") 
+
+# OBS: Veja que para conseguir concatecar o "!" com o final da string informa foi necessário utilizar o operado "+" pois apenas a "," não gerou o resultado esperado na saida do terminal.
+
+
+# -----------------------------------------------------------
+# Exercício 2: Some dois números digitados e mostre o resultado.
+# -----------------------------------------------------------
+
+# MEU CÓDIGO:
+# print("Exercício 2 — Some dois números digitados e mostre o resultado.")
+# primeiroNumero = input("Informe o primeiro número! ")
+# segundoNumero = input("Informe o segundo número! ")
+# resultado = primeiroNumero + segundoNumero
+# print("A Soma dos números digitados é:", resultado)
+
+# ERRO:
+# Resultado da soma ficou incorreto, pois informei os números 1 e 2 e o código concatenou os números informados como texto. Saida no PRONPAT: "A Soma dos números digitados é: 12"
+
+# CAUSA:
+# O input() retorna uma string. Somar duas strings resulta em concatenação, não em soma matemática.
+
+# SOLUÇÃO 1:
+# Converter os valores para inteiros com int() antes de somar.
+
+# SOLUÇÃO FINAL:
+print("Exercício 2 — Some dois números digitados e mostre o resultado.")
+primeiroNumero = int(input("Digite o primeiro número: "))
+segundoNumero = int(input("Digite o segundo número: "))
+resultado = primeiroNumero + segundoNumero
+print("O soma dos números informados é:", resultado)
+
+
+# ------------------------------
+# Exercício 3: Calcule o dobro, triplo e raiz quadrada de um número.
+# ------------------------------
+
+# MEU CÓDIGO: Utilizando o operador de potência **
+print("Exercício 3: Calcule o dobro, triplo e raiz quadrada de um número.")
+n3 = int(input("Digite um número: "))
+print("O dobro do número digitado é: ", n3 * 2)
+print("O triplo do número digitado é: ", n3 * 3)
+print("A raiz quadrada do número digitado é: ", n3 ** 0.5)
+
+# ERRO: 
+# Não há erros, porém o chat sugeriu um código mais limpo e didático
+
+# CAUSA:
+# Separação dos cálculos em variáveis facilitando a leitura e depuração e deixando o código mais limpo.
+
+# SOLUÇÃO FINAL:
+print("Exercício 3: Calcule o dobro, triplo e raiz quadrada de um número.")
+print("Utilizando o operador ** de potência!")
+n3 = int(input("Digite um número: "))
+dobro = n3 * 2
+triplo = n3 * 3
+raiz = n3 ** 0.5
+print("O dobro do número digitado é: ", dobro)
+print("O triplo do número digitado é: ", triplo)
+print("A raiz quadrada do número digitado é: ", raiz,"\n")
+
+# OBS: 
+# ** é o operador de potência (exponenciação). Ele serve para elevar um número a uma potência: base ** expoente
+# 2 ** 3 = 2³ = 8
+# 5 ** 2 = 5² = 25
+# 9 ** = 0.5 = √9 (raiz quadrada) = 3.0
+# 27 ** (1/3) = ³√27 (raiz cúbica) = 3.0
+
+
+# MEU CÓDIGO 2: Utilizando a função math.sqrt()
+import math
+print("Exercício 3: Calcule o dobro, triplo e raiz quadrada de um número.")
+print("Utilizando a função sqrt() da biblioteca math!")
+n3 = int(input("Digite um número: "))
+dobro = n3 * 2
+triplo = n3 *3 
+raiz = math.sqrt(n3)
+print("O dobro do número ditado é:", dobro , "O triplo é:",triplo, "E a raiz quadrada é:", raiz, "\n") 
+
+# ERRO: 
+# NameError: name 'math' is not defined. Did you forget to import 'math'?
+# "Erro de nome: math não foi definido. Você se esqueceu de importar math?"
+# SOLUÇÃO: 
+# Importar a biblioteca no inicio do código: import math
+
+# ERRO:
+# TypeError: bad operand type for unary +: 'str'
+# Erro de tipo: tipo de operando inválido para o operador unário +: 'str'
+# LOCAL DO ERRO: ditado é: 
+# ", dobro , + "O triplo é: ", triplo, +
+# O operador + só pode ser usado entre strings OU entre números 
+# SOLUÇÃO:
+# Retirar o operador + e deixar apenas o texto , variável , texto
+# Ex: ditado é:", dobro , "O triplo
+
+# MEU CÓDIGO 3: Utilizando a função pow
+# pow é uma função embutida do Python que não precisa ser importada e que serve para elevar um número a uma potência
+print("Exercício 3: Calcule o dobro, triplo e raiz quadrada de um número.")
+print("Utilizando a função pow!")
+n3 = int(input("Digite um número: "))
+dobro = n3 * 2
+triplo = n3 * 3 
+raiz = pow(n3, 0.5)
+print("O dobro do número digitado é:", dobro , "O triplo é:",triplo, "E a raiz quadrada é:", raiz, "\n") 
+
+# OBS:
+# Espaçamento entre operadores (* 3), por padrão de boas práticas, referencia PEP 8.
+# PEP 8 (Python Enhancement Proposal 8) é um guia de estilo oficial para escrever código Python de forma clara, consistente e profissional.
+
+# ------------------------------
+# Exercício 4: Peça o nome e a idade e exiba uma frase com essas informações.
+# ------------------------------
+
+# MEU CÓDIGO: 
+print("Exercício 4: Peça o nome e a idade e exiba uma frase com essas informações.")
+nome = input("Informe seu nome: ")
+idade = int(input("Informe sua idade: "))
+print("Seu nome é:", nome, "e sua idade é:", idade, "\n")
+
+
+# ------------------------------
+# Exercício 5: Faça um programa que leia dois números e mostre: soma, diferença, multiplicação e divisão. 
+# ------------------------------
+
+# MEU CÓDIGO: 
+print("Exercício 5: Faça um programa que leia dois números e mostre: soma, diferença, multiplicação e divisão.")
+x = int(input("Digite um número: "))
+y = int(input("Digite outro número: "))
+soma = x + y
+diferenca = x - y
+multiplicacao = x * y 
+divisao = x / y
+print("A soma dos números informados é:", soma, "e a diferença é:", diferenca, "e a multiplicação é:", multiplicacao, "e a divisão é:", divisao, "\n")
+
+
+
+####################################################### 
+######### MÓDULO 2: CONDICIONAIS (IF, ELSE) ###########
+#######################################################
+
+
+# ------------------------------
+# Exercício 6: Peça um número e diga se ele é par ou ímpar. 
+# ------------------------------
+
+# MEU CÓDIGO: 
+print("Exercício 6: Peça um número e diga se ele é par ou ímpar.")
+
+numero = int(input("Digite um número: "))
+
+resultado =  numero / 2
+
+if resultado == 0:
+    print("O número digitado é par.")
+else:
+    print("O número digitado é ímpar.")
+
+
+# ERRO:
+# Resultado quando informei o número 10 foi ímpar. Logica está errada!
+
+# CAUSA:
+# Dividi o número digitdao por 2 e compara se o resultado é igual a zero, oq nunca será verdade exceto se o número informado for zero
+# Ex: Se numero = 4, então resultado = 2.0, e 2.0 == 0 é falso.
+
+# SOLUÇÃO FINAL:
+print("Exercício 6: Peça um número e diga se ele é par ou ímpar.")
+
+numero = int(input("Digite um número: "))
+
+if numero % 2 == 0:
+    print("O número informado é par.\n")
+else:
+    print("O número informado é ímpar.\n")
+
+# OBS:
+# Para verificar se resta algo na divisão é necessário utilizar o operador de módulo % (ou operador de resto)
+# Ex: X % 2 retorna o resto da divisão por 2
+# Se o resto for 0, o número é par.
+# Se o resto for 1, o número é ímpar.
+
+
+
+
+# ------------------------------
+# Exercício 7: Verifique se o usuário pode votar (idade 16).
+# ------------------------------
+
+# MEU CÓDIGO: 
+print("Exercício 7: Verifique se o usuário pode votar (idade mínima: 16).")
+
+idade = int(input("Informe sua idade: "))
+
+if idade < 16:
+    print("Usuário não pode votar. \n")
+else:
+    print("Você já pode votar.\n")
+
+
+# MELHORIA:
+# Ordem da condição invertida (idade >= 16) Costuma-se começar pelo caso "positivo" (mais comum) 
+
+# SOLUÇÃO FINAL:
+print("Exercício 7: Verifique se o usuário pode votar (idade mínima: 16).")
+
+idade = int(input("Informe sua idade: "))
+
+if idade >= 16:
+    print("Usuário pode votar.\n")
+else:
+    print("Usuário não pode votar.\n")
+
+# OBS:
+# Pq faz sentido começar pelo caso positivo?
+
+
+
+
+
+# ------------------------------
+# Exercício 8: Peça duas notas e calcule a média. Informe se está aprovado, recuperação ou reprovado.
+# ------------------------------
+
+# MEU CÓDIGO: 
+# Escolho a estrutura de número digitados? 0 a 10 ou 0 a 100?
+# print("Exercício 8: Peça duas notas e calcule a média. Informe se está aprovado, recuperação ou reprovado.")
+
+# primeiraNota =int(input("Informe a primeira nota: "))
+# segundaNota = int(input("Informe a segunda nota: "))
+# media = (primeiraNota + segundaNota) / 2
+
+# if media >= 60:
+#     print("Você está aprovado!")
+# elif  media >= 50 and media < 60:          # Melhoria inteligente!
+#     print("Você está de recuperação!")
+# else:
+#     print("Você está reprovado!")
+
+# MELHORIA:
+# Variáveis com snake_case primeiraNota -> primeira_nota é o padrão recomendado no Python
+# A condição media < 60 é desnecessária no elif, porque se o código chegou nesse ponto, é porque media < 60 já é verdadeira
+# Ou seja, elif media >= 50: já basta
+
+# SOLUÇÃO FINAL:
+print("Exercício 8: Peça duas notas e calcule a média. Informe se está aprovado, recuperação ou reprovado.")
+
+primeira_nota = int(input("Informe a primeira nota: "))
+segunda_nota = int(input("Informe a segunda nota: "))
+media = (primeira_nota + segunda_nota) / 2
+
+if media >= 60:
+    print("Você está aprovado!\n")
+elif media >= 50:
+    print("Você está de recuperação!\n")
+else:
+    print("Você está reprovado!\n")
+
+# OBS/DÚVIDAS:
+# Passei um bom tempo decidindo se deveria validar os inputs — por exemplo, se o valor deveria estar entre 0 e 100 ou entre 0 e 10. Quando me deparo com um problema em que o comportamento do usuário pode fugir da minha lógica, o que eu faço? Já implemento uma melhoria? Ou isso tomaria tempo demais? E nos estudos, será que ganho mais continuando para o próximo exercício?
+
+
+
+
+# ------------------------------
+# Exercício 9: Peça um número e diga se ele é positivo, negativo ou zero. 
+# ------------------------------
+
+# MEU CÓDIGO: 
+# Como sei se um número é positivo ou negativo? Se > 0 positivo, se = 0 é zero, se < 0 negativo (Nem precisa da ultima condição)
+# print("Exercício 9: Peça um número e diga se ele é positivo, negativo ou zero. ")
+
+# numero = int(input("Digite um número: "))
+
+# if numero > 0:
+#     print("O número digitado é positivo!")
+# elif numero == 0:
+#     print("O número digitado é zero!")
+# elif:
+#     print("O número digitado é negativo")
+
+# ERRO:
+# elif:
+
+# CAUSA:
+# Não precisa de condição no ELSE, já no ELIF sem condição dá erro de sintaxe.
+
+# SOLUÇÃO FINAL:
+# print("Exercício 9: Peça um número e diga se ele é positivo, negativo ou zero. ")
+
+# numero = int(input("Digite um número: "))
+
+# if numero > 0:
+#     print("O número digitado é positivo!\n")
+# elif numero == 0:
+#     print("O número digitado é zero!\n")
+# else:
+#     print("O número digitado é negativo\n")
+
+
+
+
+# ------------------------------
+# Exercício 10: Faça um programa que leia a senha de acesso e valide se está correta. 
+# ------------------------------
+
+# MEU CÓDIGO: 
+print("Exercício 10: Faça um programa que leia a senha de acesso e valide se está correta.")
+
+senha_correta = '12345678'
+senha_digitada = input("Digite a senha de acesso: ")
+
+if senha_digitada == senha_correta: 
+    print("A senha está correta!\n")
+else:
+    print("A senha está incorreta!\n")
+
+####################################################### 
+######## MÓDULO 3: LAÇOS (FOR, WHILE)         #########
+#######################################################
+
+
+######################## FOR ##########################
+# CONCEITO:
+# for variável in sequencia:
+    # bloco de código que será repetido
+
+# EXEMPLO BASICO:
+# for i in range(5): #Range(5) gera os números de 0 a 4
+#     print(i)
+
+######################## WHILE ##########################
+# CONCEITO:
+# while condição:
+    # bloco de código que será repetido enquanto a condição for true
+
+# EXEMPLO BASICO:
+# contador = 0
+# while contador < 5:
+#     print(contador)
+#     contador += 1 #Aumenta o contador para evitar loop infinito 
+# #Obs: += é igual a (x = x + 1)
+
+
+
+
+
+
+
+# ------------------------------
+# Exercício 11: Mostre os  números de 1 a 10 com for.
+# ------------------------------
+
+# MEU CÓDIGO:  
+# print("Exercício 11: Mostre os  números de 1 a 10 com for.")
+# numero = 1
+# for numero in range(10):
+#     print(numero)
+
+# ERRO:
+# A saída ficou de 0 a 9
+
+# CAUSA:
+# Por padrão o range(10) começa do 0.
+# Para mostrar os números de 1 a 10, preciso ajdustar o range para começar do 1 e terminar no 11 (pois o range exclui o valor final)
+
+# SOLUÇÃO FINAL:
+# for numero in range(1, 11): # Valor final "11" será excluido
+#     print(numero)
+
+
+
+
+# ------------------------------
+# Exercício 12: Mostre os números pares entre 1 e 20 com while. 
+# ------------------------------
+# Criar a estrutura do while primeiro!
+# Como definir se um número é par? Utilizar o operador %, se x % 2 retorna o resto da divisão por 2. Se resto = 0 PAR se não resto = 1 IMPAR
+
+# TENTATIVA_1: 
+# numero = 1
+# while numero < 21: # SE (numero == 20) Essa condição nunca é verdadeira se número iniciar com 1, não gerando nada no console!
+#     print(numero % 2) # SE (numero % 2), console sai uma sequencia de 0 e 1.
+#     numero += 1
+
+# TENTATIVA 2:
+# print("Exercício 12: Mostre os números pares entre 1 e 20 com while.")
+# x = 1
+# while x <21:
+#     if(x % 2 == 0):
+#         print("O número", x,"é par!")
+#         x += 1
+#     else:
+#         x += 1
+
+# ERRO/MELHORIA:
+# É possível reduzir linhas, melhorar a logica e a leitura.
+
+# SOLUÇÃO FINAL:
+print("Exercício 12: Mostre os números pares entre 1 e 20 com while.")
+x = 1
+while x <= 20:
+    if x % 2 == 0:
+        print("O número", x, "é par!") 
+    x += 1 # Como o incremento ocorre tanto no if quanto no else, posso colocá-lo fora da estrutura condicional!
+    print("\n") # Como vou querar linha para a proxima saida do console?
+
+
+
+
+
+# ------------------------------
+# Exercício 13: Peça 5 números ao usuário e mostre a soma total. 
+# ------------------------------
+# Como pedir a primeira vez? Como pedir a segunda? | Usar o FOR
+# Como parar a iteração? Utilizando o range!
+# Como isolar o print da soma total do for?
+# Em qual momento eu devo somar os valores, dentro ou fora do FOR?
+# Como acessar o valor de x em casa posição de i?
+
+# TENTATIVA_1: 
+# print("Exercício 13: Peça 5 números ao usuário e mostre a soma total.")
+# for i in range(5):
+#     x = int(input("Digite um número: "))
+#     print("Número digitado é", x, i)
+#     soma = # Como acessar o valor de x em casa posição de i?
+
+# ERRO/MELHORIA:
+# Preciso de uma variável fora do for para acumular a soma dos números digitados
+
+# SOLUÇÃO_1:
+# print("Exercício 13: Peça 5 números ao usuário e mostre a soma total.")
+
+# soma = 0
+
+# for i in range(5):
+#     x = int(input("Digite um número: "))
+#     soma += x  # Como o programa entende que depois dessa linha ele deve voltar para o FOR?
+
+# print("A soma dos números digitados é:",soma, "\n")
+
+
+# SOLUÇÃO_2: IMPRIMA NO CONSOLE A POSIÇÃO DO NUMERO QUE SERÁ INFORMADO:
+print("Exercício 13: Peça 5 números ao usuário e mostre a soma total.")
+soma = 0
+
+for i in range(5):
+    # x = int(input("Informe um número para a posição ", {i}, ":")) #ERRO: ValueError: invalid literal for int() with base 10: ''
+    x = int(input("Informe um número para a posição " + str(i) + ": "))
+    soma += x
+
+print("A soma dos valores digitados é:", soma, "\n")
+
+
+
+
+# ------------------------------
+# Exercício 14: Crie uma tabuada de um número informado pelo usuário. 
+# ------------------------------
+# Oq é uma tabuada? É usada para aprender e consultar os resultados da operação de multiplicar. Mostra o produto de um número fixo multiplicado por uma sequencia.
+# Primeiro solicitar ao usuário qual é o número fixo
+# Criar a estrutura de multiplicação | Essa estutura será de 0 a 10? Vamos calcular o valor de x multiplicado por zero? O for é uma boa ideia?
+# Como vamos mostrar o resultado? 
+
+
+# TENTATIVA_1: 
+# x = int(input("Digita o valor da tabuada desejada: "))
+
+# for i in range(11):
+#     #print(x + str(i)) #ERRO: TypeError: unsupported operand type(s) for +: 'int' and 'str'
+#     #print(x, "x", str(i), "=", x * str(i)) #ERRO LOGICA: Saida -> (2 x 0 = 00 / 2 x 1 = 11 / 2 x 2 = 22)
+    
+# # ERRO/MELHORIA:
+# # Quando fazemos str(i) o número vira texto.
+# # Fazendo X * str(i) o Python repete o texto i vezes como "2" * 3 = 222 ao invés de fazer a multiplicação
+
+
+# SOLUÇÃO FINAL:
+print("Exercício 14: Crie uma tabuada de um número informado pelo usuário.")
+
+x = int(input("Digite o valor da tabuada desejada: "))
+
+for i in range(1,11):
+    print(x, "*", i, "=", x * i)
+
+# OBS:
+# Podemos utilizar o operador + apenas entre strings
+# Para somar int com strings devemos utilziar a virgula entre eles
+
+
+
+# ------------------------------
+# Exercício 15: Faça um contador regressivo de 10 até 0. 
+# ------------------------------
+# Qual a estrutura do meu range?
+# Primeiro vou criar for com o range solicitado!
+# Como regredir esse calculo?
+# Como acesso a ultima posição? Como acesso qualquer posição?
+
+
+# TENTATIVA_1: 
+print("Exercício 15: Faça um contador regressivo de 10 até 0.")
+
+for i in range(0, 11):
+    print(i)
+    #print("\n") #ERRO: Dessa forma a quebra de linha entra no for, quebrando a saida de cada i.
+print("\n") # IMPORTANTE: O print está fora do for por estar indentado com o FOR.
+
+# DICA_DE_PENSAMENTO:
+# Se fosse contar de 5 até 1, como faria?
+# O que muda entre contar para frente e para trás? 
+
+print("Exercício 15: Faça um contador regressivo de 10 até 0.")
+#for i in range(11, -1, -1): #ERRO: Saida saiu de 11 a 0
+for i in range(10, -1, -1): 
+    print(i)
+print("\n")
+
+
+# OBS:
+# range(início, fim, passo)
+# Início: Aonde começa
+# Fim: Até aonde vai(Não inclui o último número)
+# Passo: De quanto em quanto ele anda ou a direção, positivo e negativo!
+# Ex: range(10, -1, -1) Começa em 10, vai até -1 (não inclui o -1), e diminui de 1 em 1 
+
+
+
+
+####################################################### 
+######## MÓDULO 4: MINI-DESAFIOS              #########
+#######################################################
+
+
+
+# ------------------------------
+# Exercício 16. Crie uma calculadora simples (+, -, *, /). 
+# ------------------------------
+# Oq é uma calculadora? É uma lógica que realiza operações matemáticas básicas
+# Qual será a entrada e qual será a saida? 
+#   Entrada: de dois número mais a operação desejada 
+#   Saida: Calculo 
+# Usuário irá entrar com  dois números? 
+# Poderá escolher qual é a operação matemática?
+
+
+
+# TENTATIVA_1: 
+# print("Exercício 16. Crie uma calculadora simples (+, -, *, /).")
+# resultado = 0
+# x = int(input("Entre com o valor de X: "))
+# y = int(input("Entre com o valor de Y: "))
+# print("\nNessa calculadora você pode escolher uma dessas operações: Soma ou Subtração ou Multiplicação ou Divisão")
+# operacao = input("Digite o simbolo da operação desejada: '+' ou '-' ou '*' ou '/': ")
+
+# if operacao == '+':
+#     resultado = x + y 
+#     print("\nA soma dos dois números digitados é:", resultado,"\n")
+
+# elif operacao == '-':
+#     resultado = x - y
+#     print("\nA subtração dos dois números digitados é:", resultado,"\n")
+
+# elif operacao == '*':
+#     resultado = x * y
+#     print("\nA multiplicação dos números digitados é", resultado,"\n")
+
+# elif operacao == '/':
+#     #resultado = x / y #SAIDA: 50.0  - Divisão (float)
+#     resultado = x // y #SAIDA: 50    - Divisão inteira
+#     print("\nA divisão dos números digitados é:", resultado,"\n")
+
+
+# ERRO/MELHORIA:
+# Adicionar um else no final para lidar com operação inválida
+# else:
+#     print("Operação inválida. Tente novamente.")
+
+
+# SOLUÇÃO FINAL:
+print("Exercício 16. Crie uma calculadora simples (+, -, *, /).")
+resultado = 0
+x = int(input("Entre com o valor de X: "))
+y = int(input("Entre com o valor de Y: "))
+print("\nNessa calculadora você pode escolher uma dessas operações: Soma ou Subtração ou Multiplicação ou Divisão")
+operacao = input("Digite o simbolo da operação desejada: '+' ou '-' ou '*' ou '/': ")
+
+if operacao == '+':
+    resultado = x + y 
+    print("\nA soma dos dois números digitados é:", resultado,"\n")
+
+elif operacao == '-':
+    resultado = x - y
+    print("\nA subtração dos dois números digitados é:", resultado,"\n")
+
+elif operacao == '*':
+    resultado = x * y
+    print("\nA multiplicação dos números digitados é", resultado,"\n")
+
+elif operacao == '/':
+    #resultado = x / y #SAIDA: 50.0  - Divisão (float)
+    resultado = x // y #SAIDA: 50    - Divisão inteira
+    print("\nA divisão dos números digitados é:", resultado,"\n")
+else:
+    print("\nOperação inválida, tete novamente!","\n")
+
+
+
+# ------------------------------
+# Exercício 17: Simule um caixa eletrônico com notas de R$100, R$50, R$20 e R$10. 
+# ------------------------------
+# Esse caixa vai receber ou distribuir notas? Distribuir 
+# Perguntar para usuário qual a quantia que deseja sacar!
+# Vou validar quanto ele tem na conta? Não
+# Perguntar qual valor inteiro irá sacar!
+# Quantas vezes R$100 cabe no valor digitado?
+# Quantas vezes R$50 cabe no valor digitado?
+# Quantas vezes R$20 cabe no valor digitado?
+# Quantas vezes R$10 cabe no valor digitado?
+
+# TENTATIVA_1: 
+print("Exercício 17: Simule um caixa eletrônico com notas de R$100, R$50, R$20 e R$10.")
+saque = int(input("Qual valor deseja sacar? "))
+
+# ----- CONTANDO NOTA DE 100 -----
+contador100 = 1
+nota100 = 100
+print("\n----- CONTANDO NOTA DE 100 -----")
+
+while saque >= nota100:
+    saque = saque - nota100
+    print("Cont:", contador100, "->", "Saque menos 100:", saque)
+    contador100 += 1
+    #print("O contador é de:", contador)
+
+print("Quantas notas de 100 foram usadas?", contador100 -1)
+
+# ----- CONTANDO NOTA DE 50 -----
+print("\n----- CONTANDO NOTA DE 50 -----")
+contador50 = 1
+nota50 = 50
+
+while saque >= nota50:
+    saque = saque - nota50
+    print("Cont: ", contador50, "->", "Saque menos 50:", saque)
+    contador50 += 1
+print("Quantas notas de 50 foram usadas? ", contador50 -1)
+
+# ----- CONTANDO NOTA DE 20 -----
+contador20 = 1
+nota20 = 20
+print("\n----- CONTANDO NOTA DE 20 -----")
+
+while saque >= nota20:
+    saque = saque - nota20
+    print("Cont: ", contador20, "->", "Saque menos 20:", saque)
+    contador20 += 1
+print("Quantias notas de 20 foram usadas? ", contador20 -1)
+
+# ----- CONTANDO NOTA DE 10 -----
+contador10 = 1
+nota10 = 10
+print("\n----- CONTANDO NOTA DE 10 -----")
+
+while saque >= nota10:
+    saque = saque - nota10
+    print("Cont:", contador10, "->", "Saque menos 10:", saque)
+    contador10 += 1
+print("Quantas notas de 10 foram usadas?", contador10 -1)
+
+# ----- REGISTRANDO O RESTO -----
+print("\nQUANTIDADE DE NOTAS SACADAS:" )
+print(contador100 -1, "Nota(s) de 100")
+print(contador50 -1, "Nota(s) de 50")
+print(contador20 -1, "Nota(s) de 20")
+print(contador10 -1, "Nota(s) de 10")
+print("Saldo atual da conta após o saque será de:", "R$:",saque)
+
+
+sacar = input("\nDeseja realmente sacar as notas acima? Digite S ou N:" )
+if sacar == 's':
+    print("Liberando notas, porfavor, saque as notas!\n")
+else:
+    print("Operação finalizada!\n")
+    
+
+
+# ERRO/MELHORIA:
+# Em vez de rodar um while para cada nota, você pode usar:
+#   contador100 = saque // 100
+#   saque = saque % 100
+# No input do S ou N é importante aceitar maiúsculas e minúsculas
+#   if sacar.lower() == 's':
+
+
+
+# SOLUÇÃO FINAL:
+
+print("Exercício 17: Simule um caixa eletrônico com notas de R$100, R$50, R$20 e R$10.")
+saque = int(input("Qual valor deseja sacar? "))
+
+contador100 = saque // 100
+saque = saque % 100
+contador50 = saque // 50
+saque = saque % 50 
+contador20 = saque // 20
+saque = saque % 20
+contador10 = saque // 10
+saque = saque % 10
+print("Realmente deseja sacar:", contador100, "nota de 100,", contador50, "nota de 50,", contador20, "nota de 20,", contador10, "nota de 10?")
+
+sacar = input("S ou N: ")
+if sacar.lower() == 's':
+    print("Liberando notas!")
+else:
+    print("Operação cancelada!")
+
+
+
+# ------------------------------
+# Exercício 18: Jogo de adivinhação: o programa escolhe um número de 1 a 10.
+# ------------------------------
+
+# TENTATIVA_1: 
+# 
+
+# ERRO/MELHORIA:
+#
+
+# CAUSA:
+#
+
+
+# SOLUÇÃO FINAL:
+#
+
+# OBS:
+#
